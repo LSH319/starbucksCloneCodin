@@ -47,3 +47,19 @@ new Swiper('.notice-line .swiper', {
   },
   loop: true
 });
+
+new Swiper('.promotion .swiper',{
+  // direction: 'horizontal'
+  slidesPerView: 3,
+  spaceBetween: 10,
+  centeredSlides: true,
+  loop: true,
+  pagination: {
+    el:'.promotion .swiper-pagination',
+    clickable: true,
+  },
+  navigation:{
+    prevEl:'.promotion .swiper-prev',
+    nextEl:'.promotion .swiper-next'
+  }
+});
