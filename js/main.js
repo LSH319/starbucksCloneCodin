@@ -63,3 +63,19 @@ new Swiper('.promotion .swiper',{
     nextEl:'.promotion .swiper-next'
   }
 });
+
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+const promotionToggleIcon = document.querySelector('.toggle-promotion .material-icons');
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener('click',function(){
+  isHidePromotion = !isHidePromotion;
+  if(isHidePromotion){
+    promotionEl.classList.add('hide');
+    promotionToggleIcon.textContent = 'download';
+  }
+  else{
+    promotionEl.classList.remove('hide');
+    promotionToggleIcon.textContent = 'upload';
+  }
+});
