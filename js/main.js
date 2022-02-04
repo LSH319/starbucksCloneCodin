@@ -16,6 +16,12 @@ searchInputEl.addEventListener('blur', function(){
 });
 
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top');
+toTopEl.addEventListener('click',function(){
+  gsap.to(window, .7, {
+    scrollTo: 0
+  });
+});
 
 window.addEventListener('scroll',_.throttle(function(){
   if(window.scrollY > 500){
@@ -23,14 +29,22 @@ window.addEventListener('scroll',_.throttle(function(){
       opacity: 0,
       display: 'none'
     })
+    gsap.to(toTopEl, .2, {
+      x: -130
+    })
   }
   else{
     gsap.to(badgeEl, .6, {
       opacity: 1,
       display: 'block'
     })
+    gsap.to(toTopEl, .2, {
+      x: 0
+    })
   }
 }, 300));
+
+
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 fadeEls.forEach(function (fadeEl, index) {
@@ -64,6 +78,20 @@ new Swiper('.promotion .swiper',{
   navigation:{
     prevEl:'.promotion .swiper-prev',
     nextEl:'.promotion .swiper-next'
+  }
+});
+
+new Swiper('.awards .swiper',{
+  // direction: 'horizontal'
+  slidesPerView: 5,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+  },
+  navigation:{
+    prevEl:'.awards .swiper-prev',
+    nextEl:'.awards .swiper-next'
   }
 });
 
@@ -115,3 +143,6 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show') 
     .addTo(new ScrollMagic.Controller())
 })
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();
