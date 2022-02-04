@@ -54,6 +54,9 @@ new Swiper('.promotion .swiper',{
   spaceBetween: 10,
   centeredSlides: true,
   loop: true,
+  autoplay: {
+    delay: 4000,
+  },
   pagination: {
     el:'.promotion .swiper-pagination',
     clickable: true,
@@ -72,10 +75,12 @@ promotionToggleBtn.addEventListener('click',function(){
   isHidePromotion = !isHidePromotion;
   if(isHidePromotion){
     promotionEl.classList.add('hide');
-    promotionToggleIcon.textContent = 'download';
+    promotionToggleIcon.classList.add('down');
+    // promotionToggleIcon.textContent = 'download';
   }
   else{
     promotionEl.classList.remove('hide');
-    promotionToggleIcon.textContent = 'upload';
+    promotionToggleIcon.classList.remove('down');
+    // promotionToggleIcon.textContent = 'upload';
   }
 });
